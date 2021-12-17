@@ -25,9 +25,7 @@
 				  <label>年齢：</label>
 				  <input type="number" name="age" class="form-control" placeholder="年齢を入力してください"><br>
 				  <label>性別：</label>
-				  <input type="radio" name="sex" value="man">男
-				  <input type="radio" name="sex" value="woman">女
-				  <select class="form-control">
+				  <select class="form-control" name="sex">
                            <option>男性</option>
                            <option>女性</option>
                            <option>カスタム</option>
