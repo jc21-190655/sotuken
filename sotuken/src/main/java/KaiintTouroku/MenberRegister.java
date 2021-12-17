@@ -1,3 +1,4 @@
+package KaiintTouroku;
 
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class MenberRegister extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/MemberRegister.html").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/menber.jsp").forward(request, response);
 	}
 
 	/**
