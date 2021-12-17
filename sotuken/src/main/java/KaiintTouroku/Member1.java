@@ -1,4 +1,5 @@
-package toppage;
+package KaiintTouroku;
+
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class TopPage
+ * Servlet implementation class MenberRegister
  */
-@WebServlet("/toppage1")
-public class TopPage1 extends HttpServlet {
+@WebServlet("/MenberRegister")
+public class Member1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TopPage1() {
+    public Member1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,8 +28,18 @@ public class TopPage1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/top.jsp").forward(request, response);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/WEB-INF/menber.jsp").forward(request, response);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		request.getParameter(getServletInfo())
+		
+	}*/
 
 }

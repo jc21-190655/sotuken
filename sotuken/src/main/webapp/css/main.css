@@ -1,13 +1,8 @@
-html {
+.abs {
     /* ルート要素の文字サイズを変更する */
     font-size: 35px;
     background: #e0e5ec;
 }
-
-.op{
-  background: #e0e5ec;
-}
-
 section {
   max-width: 300px;
   margin: 0 auto;
