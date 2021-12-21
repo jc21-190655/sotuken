@@ -1,0 +1,70 @@
+.a {
+    /* ルート要素の文字サイズを変更する */
+    background: #e0e5ec;
+}
+
+
+h1{
+    font-size: 2.85rem;
+    padding-top: 3rem;
+}
+
+
+
+.aho{ 
+    width: 150%;
+    min-width:15rem ;
+    max-width: 25rem;
+    padding: 10px; 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: white;
+    border-radius: 31px;
+    border-color: blue;
+    box-shadow: none;
+    
+
+}
+
+.baka{ 
+    width: 150%;
+    min-width:15rem ;
+    max-width: 25rem;
+    padding: 10px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: white;
+    border-radius: 31px;
+    border-color: red;
+    box-shadow: none;
+
+}.aho2{ 
+    width: 150%;
+    min-width:15rem ;
+    max-width: 25rem;
+    padding: 10px; 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: white;
+    border-radius: 31px;
+    border-color: wheat;
+    box-shadow: none;
+
+
+}
+
+.baka2{ 
+    width: 150%;
+    min-width:15rem ;
+    max-width: 25rem;
+    padding: 10px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: white;
+    border-radius: 31px;
+    border-color: rgb(132, 160, 147);
+    box-shadow: none;
+
+}
+
+
