@@ -20,7 +20,7 @@
 
 	<div class="text-center container mt-5 pt-5 text-center">
 		<section>
-			<a href="#" class="btn_03">ログイン</a>//ボタンへ変更
+			<a href="#" class="btn_03">ログイン</a>
 		</section>
 	</div>
 
