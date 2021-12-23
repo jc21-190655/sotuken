@@ -35,13 +35,13 @@
 				  <label>メールアドレス：</label>
 				  <input type="email" name="email" class="form-control" placeholder="xxxx@example.com"><br>
 				  <label>電話番号：</label>
-				  <input type="tel" name="tel" class="form-control" placeholder="電話番号を入力してください"><br>
+				  <input type="tel" name="phone" class="form-control" placeholder="電話番号を入力してください"><br>
 				  <label>ユーザーID：</label>
-				  <input type="text" name="userID" class="form-control" placeholder="ユーザーIDを入力してください"><br>
+				  <input type="text" name="userid" class="form-control" placeholder="ユーザーIDを入力してください"><br>
 				  <label>パスワード：</label>
-				  <input type="password" name="passward-1" class="form-control"  maxlength="8" placeholder="〜8文字で入力"><br>
+				  <input type="password" name="password" class="form-control"  maxlength="8" placeholder="〜8文字で入力"><br>
 				  <label>確認用パスワード入力：</label>
-				  <input type="password" name="passward-2" class="form-control" maxlength="8" placeholder="〜8文字で入力"><br>
+				  <input type="password" name="repassword" class="form-control" maxlength="8" placeholder="〜8文字で入力"><br>
 				  <div class="text-center">
 				  	 <input type="submit" class="btn btn-primary btn-lg" value="登録する">
 				  </div>

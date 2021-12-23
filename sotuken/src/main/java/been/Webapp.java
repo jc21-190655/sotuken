@@ -5,21 +5,43 @@ import java.io.PrintWriter;
 public class Webapp implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     
-    private int user_no;
     private String name;
     private String age;
     private String sex;
     private String birthday;
     private String email;
-    private int phone;
-    private String passward;
-    private String repassward;
+    private String phone;
+    private String userid;
+	private String password;
+    private String repassword;
+    private String morning;
     
-	public int getUser_no() {
-		return user_no;
+    public String getMorning() {
+		return morning;
 	}
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
+	public void setMorning(String morning) {
+		this.morning = morning;
+	}
+	public String getNoon() {
+		return noon;
+	}
+	public void setNoon(String noon) {
+		this.noon = noon;
+	}
+	public String getNight() {
+		return night;
+	}
+	public void setNight(String night) {
+		this.night = night;
+	}
+	private String noon;
+    private String night;
+
+    public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public String getName() {
 		return name;
@@ -51,23 +73,25 @@ public class Webapp implements java.io.Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getPassward() {
-		return passward;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassward(String passward) {
-		this.passward = passward;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getRepassward() {
-		return repassward;
+	public String getRepassword() {
+		return repassword;
 	}
-	public void setRepassward(String repassward) {
-		this.repassward = repassward;
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
 	}
+    
+	
 
 }

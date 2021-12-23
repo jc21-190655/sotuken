@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
+import been.Drag;
 import been.Webapp;
 
 /**
@@ -29,7 +31,7 @@ public class DAO extends HttpServlet {
 	public Connection getConnection() throws Exception {
 		if (ds == null) {
 			InitialContext ic = new InitialContext();
-			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/webapp");
+			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/TeamA");
 		}
 		return ds.getConnection();
 	}
@@ -65,15 +67,15 @@ public class DAO extends HttpServlet {
 				// --- １件分のデータを格納するBeanを作成
 				Webapp p = new Webapp();
 				// --- Beanにクエリで得取得した値を設定（Beanのメソッドを利用）
-				p.setUser_no(rs.getInt("user_no"));
 				p.setName(rs.getString("name"));
 				p.setAge(rs.getString("age"));
 				p.setSex(rs.getString("sex"));
 				p.setBirthday(rs.getString("birthday"));
 				p.setEmail(rs.getString("email"));
-				p.setPhone(rs.getInt("phone"));
-				p.setPassward(rs.getString("passward"));
-				p.setRepassward(rs.getString("repassward"));
+				p.setPhone(rs.getString("phone"));
+				p.setUserid(rs.getString("userid"));
+				p.setPassword(rs.getString("passward"));
+				p.setRepassword(rs.getString("repassward"));
 				// --- Beanを配列aryに追加
 				ary.add(p);
 			}
@@ -86,27 +88,72 @@ public class DAO extends HttpServlet {
 		}
 
 		// 追加処理
-		public int insert(Webapp product) throws Exception {
+		public int insertMember(Webapp product) throws Exception {
 			Connection con = getConnection();
-			
-			PreparedStatement pst = con.prepareStatement("select count(*) as kosu from user where user_no=?");
-			pst.setInt(1, product.getUser_no());
+			PreparedStatement pst = con.prepareStatement("select count(*) as kosu from user where userid=?");
+			pst.setString(1, product.getUserid());
 			ResultSet rs = pst.executeQuery();
+			rs.next();
 			int kosu = rs.getInt("kosu");
 			rs.close();
 			pst.close();
+			System.out.print("kosu");
 			
 			if(kosu==0) {
-			PreparedStatement st = con.prepareStatement("insert into product values(?,?,?,?,?,?,?,?,?)");
-			st.setInt(1, product.getUser_no());
-			st.setString(2, product.getName());
-			st.setString(3, product.getAge());
-			st.setString(4, product.getSex());
-			st.setString(5, product.getBirthday());
-			st.setString(6, product.getEmail());
-			st.setInt(7, product.getPhone());
-			st.setString(8, product.getPassward());
-			st.setString(9, product.getRepassward());
+			PreparedStatement st = con.prepareStatement("insert into user(name,age,sex,birthday,email,phone,userid,password,repassword) values(?,?,?,?,?,?,?,?,?)");
+			st.setString(1, product.getName());
+			st.setString(2, product.getAge());
+			st.setString(3, product.getSex());
+			st.setString(4, product.getBirthday());
+			st.setString(5, product.getEmail());
+			st.setString(6, product.getPhone());
+			st.setString(7, product.getUserid());
+			st.setString(8, product.getPassword());
+			st.setString(9, product.getRepassword());
+			
+			int line = st.executeUpdate();
+			st.close();
+			con.close();
+			return line;
+			
+			}return 0;
+		}
+		
+		public int insertDrag(Drag product) throws Exception {
+			Connection con = getConnection();
+			PreparedStatement st = con.prepareStatement("insert into medichine("
+					+ "m_date,_medichine_name,dosage_form,daily_dose,total_amount) "
+					+ "values(?,?,?,?,?)");
+			st.setString(1, product.getM_date());
+			st.setString(2, product.getMedichine_name());
+			st.setString(3, product.getDosage_form());
+			st.setString(4, product.getDaily_dose());
+			st.setString(5, product.getTotal_amount());
+			
+			int line = st.executeUpdate();
+			st.close();
+			con.close();
+			return line;
+		}
+		
+		public int insertTime(Webapp product) throws Exception {
+			Connection con = getConnection();
+			PreparedStatement pst = con.prepareStatement("select count(*) as kosu from user where userid=?");
+			pst.setString(1, product.getUserid());
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			int kosu = rs.getInt("kosu");
+			rs.close();
+			pst.close();
+			System.out.print("kosu");
+			
+			if(kosu==0) {
+			PreparedStatement st = con.prepareStatement("insert into user(morning,noon,night"
+					+ ") values(?,?,?)");
+			st.setString(1, product.getMorning());
+			st.setString(2, product.getNoon());
+			st.setString(3, product.getNight());	
+			
 			int line = st.executeUpdate();
 			st.close();
 			con.close();

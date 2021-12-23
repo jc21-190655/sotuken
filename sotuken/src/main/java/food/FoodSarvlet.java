@@ -1,4 +1,4 @@
-package mypage;
+package food;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class mypage
+ * Servlet implementation class FoodSarvlet
  */
-@WebServlet("/mypage")
-public class MypageSarvlet extends HttpServlet {
+@WebServlet("/FoodSarvlet")
+public class FoodSarvlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageSarvlet() {
+    public FoodSarvlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class MypageSarvlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/mycomplete.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/fcomplete.jsp").forward(request, response);
 	}
 
 	/**
@@ -35,7 +35,6 @@ public class MypageSarvlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//request.getRequestDispatcher("/WEB-INF/mycomplete.jsp").forward(request, response);
 	}
 
 }

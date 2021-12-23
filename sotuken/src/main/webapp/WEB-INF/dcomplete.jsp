@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>会員登録完了画面</title>
+<title>薬情情報登録画面</title>
 <link href="css/main.css" rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
@@ -15,7 +15,7 @@
 <body class="abs">
 
 	<div class="container mt-5 pt-5 text-center ">
-		<h1>会員登録が完了しました</h1>
+		<h1>薬情報報の登録が完了しました</h1>
 	</div>
 
 	<div class="text-center container mt-5 pt-5 text-center">
@@ -23,7 +23,6 @@
 			<a href="#" class="btn_03">ログイン</a>
 		</section>
 	</div>
-
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
