@@ -7,10 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import com.google.appengine.api.utils.SystemProperty;
-
-import jp.ac.jc21.t.yoshizawa.admin.property.DataStoreControl;
-
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/openidSignIn" })
 
@@ -18,15 +14,14 @@ public final class Jc21MSOpenidSigninServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		DataStoreControl dsc = new DataStoreControl();
 		String url = null;
-
-		if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
+		String localAddr = req.getLocalAddr();
+		if(localAddr.substring(0,3).contentEquals("192")) {
 			// Production
-			url = getProductionLoginUrl(dsc);
+			url = getProductionLoginUrl();
 		} else {
 			// Local development server
-			url = getDevelopLoginUrl(dsc);
+			url = getDevelopLoginUrl();
 
 		}
 
@@ -39,14 +34,14 @@ public final class Jc21MSOpenidSigninServlet extends HttpServlet {
 
 	}
 
-	private String getDevelopLoginUrl(DataStoreControl dsc) {
+	private String getDevelopLoginUrl() {
 		String url = null;
-		String AzureAppIdLocal = dsc.getId("Property", "AzureAppIdLocal");
+		String AzureAppIdLocal = "a93c6516-b7b3-407e-b7ca-2dbc3d55e8c0";
 		if (AzureAppIdLocal != null) {
 			url = "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
 			url += "?client_id=" + AzureAppIdLocal;
 			url += "&response_type=id_token";
-			url += "&redirec_uri=http%3A%2F%2Flocalhost%3A8080%2Fmsredirect";
+			url += "&redirec_uri=http%3A%2F%2Flocalhost%3A8080%2FloginSample%2Fmsredirect";
 			url += "&response_mode=form_post";
 			url += "&scope=openid%20profile";
 			url += "&state=12345";
@@ -55,9 +50,9 @@ public final class Jc21MSOpenidSigninServlet extends HttpServlet {
 		return url;
 	}
 
-	private String getProductionLoginUrl(DataStoreControl dsc) {
+	private String getProductionLoginUrl() {
 		String url = null;
-		String AzureAppId = dsc.getId("Property", "AzureAppId");
+		String AzureAppId = null;
 		if (AzureAppId != null) {
 			url = "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize";
 			url += "?client_id=" + AzureAppId;

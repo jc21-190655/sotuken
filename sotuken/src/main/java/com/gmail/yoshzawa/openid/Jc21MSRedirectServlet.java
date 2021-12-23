@@ -4,11 +4,9 @@ import java.io.IOException;
 import org.apache.geronimo.mail.util.Base64;
 
 import com.gmail.yoshzawa.openid.jwt.JwtHeader;
-import com.gmail.yoshzawa.openid.ofy.UserAccount;
 import com.gmail.yoshzawa.openid.jwt.JwtPayload;
 import com.google.gson.Gson;
 
-import jp.ac.jc21.t.yoshizawa.objectify.Member;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -21,9 +19,7 @@ import java.util.logging.Logger;
 
 public final class Jc21MSRedirectServlet extends HttpServlet {
 
-	static {
-		UserAccount.ofyInit();
-	}
+
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		final Logger log = Logger.getLogger(Jc21MSRedirectServlet.class.getName());
@@ -81,16 +77,8 @@ public final class Jc21MSRedirectServlet extends HttpServlet {
 		log.info("tid = " + body.getTid());
 		log.info("ver = " + body.getVer());
 
-		UserAccount user = new UserAccount(email);
-		user.setRemoteHost(req.getRemoteHost());
-		user.save();
-
 		HttpSession session = req.getSession();
 		session.setAttribute("email", email);
-
-		Member m = Member.get(email);
-		m.setModified(new Date());
-		m.save();
 
 		resp.getWriter().println("<H1>Welcome," + email + "</h1>");
 		resp.getWriter().println("<a href='/index'>Continue</a>");
