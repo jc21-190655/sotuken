@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,27 +21,27 @@
 		<div class="row col-md">
 			<form action="./kaiintouroku" method="post">
 				  <label>氏名：</label>
-				  <input type="text" name="name" value="" class="form-control" placeholder="氏名を入力してください"><br>
+				  <input type="text" name="name" class="form-control" placeholder="氏名を入力してください"><br>
 				  <label>年齢：</label>
-				  <input type="number" name="age" value="" class="form-control" placeholder="年齢を入力してください"><br>
+				  <input type="number" name="age" class="form-control" placeholder="年齢を入力してください"><br>
 				  <label>性別：</label>
-				  <select class="form-control">
+				  <select class="form-control" name="sex">
                            <option>男性</option>
                            <option>女性</option>
                            <option>カスタム</option>
                      </select><br>
 				  <label>生年月日：</label>
-				  <input type="date" name="birthday" value="" class="form-control"><br>
+				  <input type="date" name="birthday" class="form-control"><br>
 				  <label>メールアドレス：</label>
-				  <input type="email" name="email-address" value="" class="form-control" placeholder="xxxx@example.com"><br>
+				  <input type="email" name="email" class="form-control" placeholder="xxxx@example.com"><br>
 				  <label>電話番号：</label>
-				  <input type="tel" name="telnumber" value="" class="form-control" placeholder="電話番号を入力してください"><br>
+				  <input type="tel" name="phone" class="form-control" placeholder="電話番号を入力してください"><br>
 				  <label>ユーザーID：</label>
-				  <input type="text" name="userID" value="" class="form-control" placeholder="ユーザーIDを入力してください"><br>
+				  <input type="text" name="userid" class="form-control" placeholder="ユーザーIDを入力してください"><br>
 				  <label>パスワード：</label>
-				  <input type="password" name="passward-1" value=""class="form-control"  maxlength="8" placeholder="〜8文字で入力"><br>
+				  <input type="password" name="password" class="form-control"  maxlength="8" placeholder="〜8文字で入力"><br>
 				  <label>確認用パスワード入力：</label>
-				  <input type="password" name="passward-2" value="" class="form-control" maxlength="8" placeholder="〜8文字で入力"><br>
+				  <input type="password" name="repassword" class="form-control" maxlength="8" placeholder="〜8文字で入力"><br>
 				  <div class="text-center">
 				  	 <input type="submit" class="btn btn-primary btn-lg" value="登録する">
 				  </div>

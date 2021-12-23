@@ -1,4 +1,4 @@
-
+package toppage;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,25 +8,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class KaiintourokuSarvlet
+ * Servlet implementation class TopPage
  */
-@WebServlet("/kaiintouroku")
-public class KaiintourokuSarvlet extends HttpServlet {
+@WebServlet("/toppage1")
+public class TopPage1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KaiintourokuSarvlet() {
+    public TopPage1() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/MemberConplete.html").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/top.jsp").forward(request, response);
 	}
+
 
 }
