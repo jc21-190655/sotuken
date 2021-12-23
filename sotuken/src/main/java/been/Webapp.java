@@ -14,6 +14,28 @@ public class Webapp implements java.io.Serializable {
     private String userid;
 	private String password;
     private String repassword;
+    private String morning;
+    
+    public String getMorning() {
+		return morning;
+	}
+	public void setMorning(String morning) {
+		this.morning = morning;
+	}
+	public String getNoon() {
+		return noon;
+	}
+	public void setNoon(String noon) {
+		this.noon = noon;
+	}
+	public String getNight() {
+		return night;
+	}
+	public void setNight(String night) {
+		this.night = night;
+	}
+	private String noon;
+    private String night;
 
     public String getUserid() {
 		return userid;

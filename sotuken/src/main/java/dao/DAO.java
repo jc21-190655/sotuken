@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
+import been.Drag;
 import been.Webapp;
 
 /**
@@ -86,7 +88,7 @@ public class DAO extends HttpServlet {
 		}
 
 		// 追加処理
-		public int insert(Webapp product) throws Exception {
+		public int insertMember(Webapp product) throws Exception {
 			Connection con = getConnection();
 			PreparedStatement pst = con.prepareStatement("select count(*) as kosu from user where userid=?");
 			pst.setString(1, product.getUserid());
@@ -108,6 +110,49 @@ public class DAO extends HttpServlet {
 			st.setString(7, product.getUserid());
 			st.setString(8, product.getPassword());
 			st.setString(9, product.getRepassword());
+			
+			int line = st.executeUpdate();
+			st.close();
+			con.close();
+			return line;
+			
+			}return 0;
+		}
+		
+		public int insertDrag(Drag product) throws Exception {
+			Connection con = getConnection();
+			PreparedStatement st = con.prepareStatement("insert into medichine("
+					+ "m_date,_medichine_name,dosage_form,daily_dose,total_amount) "
+					+ "values(?,?,?,?,?)");
+			st.setString(1, product.getM_date());
+			st.setString(2, product.getMedichine_name());
+			st.setString(3, product.getDosage_form());
+			st.setString(4, product.getDaily_dose());
+			st.setString(5, product.getTotal_amount());
+			
+			int line = st.executeUpdate();
+			st.close();
+			con.close();
+			return line;
+		}
+		
+		public int insertTime(Webapp product) throws Exception {
+			Connection con = getConnection();
+			PreparedStatement pst = con.prepareStatement("select count(*) as kosu from user where userid=?");
+			pst.setString(1, product.getUserid());
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			int kosu = rs.getInt("kosu");
+			rs.close();
+			pst.close();
+			System.out.print("kosu");
+			
+			if(kosu==0) {
+			PreparedStatement st = con.prepareStatement("insert into user(morning,noon,night"
+					+ ") values(?,?,?)");
+			st.setString(1, product.getMorning());
+			st.setString(2, product.getNoon());
+			st.setString(3, product.getNight());	
 			
 			int line = st.executeUpdate();
 			st.close();

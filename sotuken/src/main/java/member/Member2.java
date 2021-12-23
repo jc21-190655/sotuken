@@ -54,7 +54,7 @@ public class Member2 extends HttpServlet {
 			p.setRepassword(repassword);
 			
 			DAO dao = new DAO();
-			int line = dao.insert(p);
+			int line = dao.insertMember(p);
 			if (line > 0 ) {
 				System.out.println("実行成功");
 				request.getRequestDispatcher("/WEB-INF/mcomplete.jsp").forward(request, response);
