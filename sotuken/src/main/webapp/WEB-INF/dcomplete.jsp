@@ -15,13 +15,15 @@
 <body class="abs">
 
 	<div class="container mt-5 pt-5 text-center ">
-		<h1>薬情報報の登録が完了しました</h1>
+		<h1>薬情報の登録が完了しました</h1>
 	</div>
 
 	<div class="text-center container mt-5 pt-5 text-center">
+		<form action="./toppage1" method="get">
 		<section>
-			<a href="#" class="btn_03">ログイン</a>
+			<button type="submit" value="toppage"class="btn_03">トップページ</button>
 		</section>
+		</form>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -19,9 +19,11 @@
 	</div>
 
 	<div class="text-center container mt-5 pt-5 text-center">
+		<form action="./toppage1" method="get">
 		<section>
-			<a href="#" class="btn_03">ログイン</a>
+			<button type="submit" value="toppage"class="btn_03">ログインへ</button>
 		</section>
+		</form>
 	</div>
 
 

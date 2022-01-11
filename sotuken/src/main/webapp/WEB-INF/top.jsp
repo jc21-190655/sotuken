@@ -27,7 +27,6 @@
 			<button type="submit" name="state" value="food"
 				class="aho btn-outline-primary">食事時間登録</button>
 		</h1>
-
 		<h1 class="button-name text-center">
 			<button type="submit" name="state" value="mypage"
 				class="baka2 btn-outline-success">マイページ</button>

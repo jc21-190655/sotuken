@@ -3,11 +3,14 @@
     font-size: 35px;
     background: #e0e5ec;
 }
+.aths {
+    background: #e0e5ec;
+}
 section {
   max-width: 300px;
   margin: 0 auto;
 }
-a.btn_03 {
+button.btn_03 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +30,7 @@ a.btn_03 {
   text-decoration: none;
   transition-duration: 0.3s;
 }
-a.btn_03:before {
+button.btn_03:before {
   content: '';
   width: 8px;
   height: 8px;
@@ -40,11 +43,11 @@ a.btn_03:before {
   right: 25px;
   margin-top: -6px;
 }
-a.btn_03:hover {
+button.btn_03:hover {
   background: #fff;
   color: #228bc8;
 }
-a.btn_03:hover:before {
+button.btn_03:hover:before {
   border-top: 2px solid #228bc8;
   border-right: 2px solid #228bc8;
 }

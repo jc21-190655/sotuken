@@ -121,14 +121,12 @@ public class DAO extends HttpServlet {
 		
 		public int insertDrag(Drag product) throws Exception {
 			Connection con = getConnection();
-			PreparedStatement st = con.prepareStatement("insert into medichine("
-					+ "m_date,_medichine_name,dosage_form,daily_dose,total_amount) "
-					+ "values(?,?,?,?,?)");
-			st.setString(1, product.getM_date());
-			st.setString(2, product.getMedichine_name());
-			st.setString(3, product.getDosage_form());
-			st.setString(4, product.getDaily_dose());
-			st.setString(5, product.getTotal_amount());
+			PreparedStatement st = con.prepareStatement("insert into medichine(kusurimei,zaigata,itinitiryou,youhou,zenryou)values(?,?,?,?,?)");
+			st.setString(1, product.getKusurimei());
+			st.setString(2, product.getZaigata());
+			st.setString(3, product.getItinitiryou());
+			st.setString(4, product.getYouhou());
+			st.setString(5, product.getZenryou());
 			
 			int line = st.executeUpdate();
 			st.close();

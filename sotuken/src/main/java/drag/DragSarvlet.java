@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DragSarvlet
  */
-@WebServlet("/DragSarvlet")
+@WebServlet("/drag")
 public class DragSarvlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,15 +28,20 @@ public class DragSarvlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/WEB-INF/dcomplete.jsp").forward(request, response);
+		//request.getRequestDispatcher("/WEB-INF/dcomplete.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+		String state = request.getParameter("state");
+		if (state.equals("drag")) {
+			
+			request.getRequestDispatcher("/WEB-INF/dcomplete.jsp").forward(request, response);//薬情報登録画面に遷移
+		} else if (state.equals("toppage")) {
+			request.getRequestDispatcher("/WEB-INF/top.jsp").forward(request, response);//食事時間登録画面に遷移
+		}
 	}
 
 }

@@ -14,49 +14,42 @@ import javax.servlet.http.HttpServletResponse;
 public class Drag extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private String user_id;
-    private String m_date;
-    private String medichine_name;
-    private String dosage_form;
-    private String daily_dose;
-    private String total_amount;
+	private String kusurimei;
+    private String zaigata;
+    private String itinitiryou;
+    private String youhou;
+    private String zenryou;
     
-    public String getUser_id() {
-		return user_id;
+	public String getKusurimei() {
+		return kusurimei;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setKusurimei(String kusurimei) {
+		this.kusurimei = kusurimei;
 	}
-	public String getM_date() {
-		return m_date;
+	public String getZaigata() {
+		return zaigata;
 	}
-	public void setM_date(String m_date) {
-		this.m_date = m_date;
+	public void setZaigata(String zaigata) {
+		this.zaigata = zaigata;
 	}
-	public String getMedichine_name() {
-		return medichine_name;
+	public String getItinitiryou() {
+		return itinitiryou;
 	}
-	public void setMedichine_name(String medichine_name) {
-		this.medichine_name = medichine_name;
+	public void setItinitiryou(String itinitiryou) {
+		this.itinitiryou = itinitiryou;
 	}
-	public String getDosage_form() {
-		return dosage_form;
+	public String getYouhou() {
+		return youhou;
 	}
-	public void setDosage_form(String dosage_form) {
-		this.dosage_form = dosage_form;
+	public void setYouhou(String youhou) {
+		this.youhou = youhou;
 	}
-	public String getDaily_dose() {
-		return daily_dose;
+	public String getZenryou() {
+		return zenryou;
 	}
-	public void setDaily_dose(String daily_dose) {
-		this.daily_dose = daily_dose;
+	public void setZenryou(String zenryou) {
+		this.zenryou = zenryou;
 	}
-	public String getTotal_amount() {
-		return total_amount;
-	}
-	public void setTotal_amount(String total_amount) {
-		this.total_amount = total_amount;
-	}
-
-
+    
+    
 }
