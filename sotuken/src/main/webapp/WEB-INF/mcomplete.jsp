@@ -19,7 +19,7 @@
 	</div>
 
 	<div class="text-center container mt-5 pt-5 text-center">
-		<form action="./toppage1" method="get">
+		<form action="./openidSignIn" method="get">
 		<section>
 			<button type="submit" value="toppage"class="btn_03">ログインへ</button>
 		</section>

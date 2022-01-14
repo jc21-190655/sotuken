@@ -37,7 +37,7 @@ public class TopPage2 extends HttpServlet {
 		} else if(state.equals("mypage")) {
 			request.getRequestDispatcher("/WEB-INF/mypage.jsp").forward(request, response);//マイページ画面に遷移
 		}else if(state.equals("logout")) {
-			//request.getRequestDispatcher("/WEB-INF/mypage.jsp").forward(request, response);//ログアウト処理をする
+			request.getRequestDispatcher("./openidSignOut").forward(request, response);//ログアウト処理をする
 		}
 
 	}

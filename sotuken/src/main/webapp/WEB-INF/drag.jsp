@@ -19,15 +19,15 @@
 	<div class="container">
 		<div class="row col-md">
 			<form action="./drag" method="post">
-				<label>お薬名：</label> <input type="text" name="name"
+				<label>お薬名：</label> <input type="text" name="kusurimei"
 					class="form-control" placeholder="お薬名を入力してください"><br> <label>剤型：</label>
-				<input type="text" name="name" class="form-control"
+				<input type="text" name="zaigata" class="form-control"
 					placeholder="剤型を入力してください"><br> <label>一日量：</label> <input
-					type="text" name="name" class="form-control"
+					type="text" name="itinitiryou" class="form-control"
 					placeholder="一日量を入力してください"><br> <label>用法：</label> <input
-					type="text" name="name" class="form-control"
+					type="text" name="youhou" class="form-control"
 					placeholder="用法を入力してください"><br> <label>全量：</label> <input
-					type="text" name="name" class="form-control"
+					type="text" name="zenryou" class="form-control"
 					placeholder="全量を入力してください"><br>
 				<div class="text-center">
 				  	 <button type="submit" name="state" value="toppage" class="btn btn-primary btn-lg" >キャンセル</button>　
