@@ -14,12 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 public class Drag extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	private String userid;
 	private String kusurimei;
     private String zaigata;
     private String itinitiryou;
     private String youhou;
     private String zenryou;
     
+    
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	public String getKusurimei() {
 		return kusurimei;
 	}

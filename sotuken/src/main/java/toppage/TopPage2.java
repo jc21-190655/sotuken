@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class TopPage2
@@ -30,6 +31,10 @@ public class TopPage2 extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String state = request.getParameter("state");
+		HttpSession session = request.getSession();
+		String userid= (String)session.getAttribute("userid");
+		session.setAttribute("userid", userid);
+		
 		if (state.equals("drag")) {
 			request.getRequestDispatcher("/WEB-INF/drag.jsp").forward(request, response);//薬情報登録画面に遷移
 		} else if (state.equals("food")) {
