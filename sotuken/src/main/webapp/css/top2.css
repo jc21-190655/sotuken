@@ -38,7 +38,8 @@ h1{
     border-color: red;
     box-shadow: none;
 
-}.aho2{ 
+}
+.aho2{ 
     width: 150%;
     min-width:15rem ;
     max-width: 25rem;
