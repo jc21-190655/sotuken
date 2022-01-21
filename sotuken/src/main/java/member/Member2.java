@@ -69,6 +69,7 @@ public class Member2 extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/mcomplete.jsp").forward(request, response);
 			} else {
 				System.out.println("実行失敗");
+				request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();

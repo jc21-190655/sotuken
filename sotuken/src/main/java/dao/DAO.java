@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +20,7 @@ import javax.sql.DataSource;
 
 import been.Drag;
 import been.Food;
+import been.ImageBean;
 import been.Webapp;
 
 /**
@@ -167,5 +169,23 @@ public class DAO extends HttpServlet {
 			
 			//}return 0;
 		}
+		
+		public int uploadImage(ImageBean product) throws Exception{
+
+			Connection con = getConnection();
+			PreparedStatement st = con.prepareStatement("insert into photo(userid,photo_no,image) values(?,?,?)");
+
+			st.setString(1, product.getUserid());
+			Date date = new Date(); // 今日の日付
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String strDate = dateFormat.format(date);
+			st.setString(2, strDate);
+			st.setBinaryStream(3, new ByteArrayInputStream(product.getImage()));
+			
+			int line = st.executeUpdate();
+			st.close();
+			con.close();
+			return line;
+			}
 
 }

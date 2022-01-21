@@ -78,6 +78,7 @@ public class DragSarvlet extends HttpServlet {
 					request.getRequestDispatcher("/WEB-INF/dcomplete.jsp").forward(request, response);//薬情報登録画面に遷移
 				} else {
 					System.out.println("実行失敗");
+					request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
 				}		
 				
 			} else if (state.equals("toppage")) {
