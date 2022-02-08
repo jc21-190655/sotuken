@@ -14,28 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 public class MypageSarvlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MypageSarvlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/mycomplete.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//request.getRequestDispatcher("/WEB-INF/mycomplete.jsp").forward(request, response);
+		String state = request.getParameter("state");
+		if (state.equals("mypage")) {
+			
+			request.getRequestDispatcher("/WEB-INF/mycomplete.jsp").forward(request, response);
+		} else if (state.equals("toppage")) {
+			request.getRequestDispatcher("/WEB-INF/top.jsp").forward(request, response);//食事時間登録画面に遷移
+		}
+		
 	}
 
 }

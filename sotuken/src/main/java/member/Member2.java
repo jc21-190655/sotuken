@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import been.Webapp;
 import dao.DAO;
@@ -32,7 +33,11 @@ public class Member2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
 		try {
+			HttpSession session = request.getSession();
+			
 			String name = request.getParameter("name");
 			String age = request.getParameter("age");
 			String sex = request.getParameter("sex");
@@ -42,6 +47,9 @@ public class Member2 extends HttpServlet {
 			String userid = request.getParameter("userid");
 			String password = request.getParameter("password");
 			String repassword = request.getParameter("repassword");
+			
+			session.setAttribute("userid", userid);
+			
 			Webapp p = new Webapp();
 			p.setName(name);
 			p.setAge(age);
@@ -57,9 +65,11 @@ public class Member2 extends HttpServlet {
 			int line = dao.insertMember(p);
 			if (line > 0 ) {
 				System.out.println("実行成功");
+				
 				request.getRequestDispatcher("/WEB-INF/mcomplete.jsp").forward(request, response);
 			} else {
 				System.out.println("実行失敗");
+				request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();

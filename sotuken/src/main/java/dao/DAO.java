@@ -1,10 +1,13 @@
 package dao;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.naming.InitialContext;
@@ -16,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import been.Drag;
+import been.Food;
+import been.ImageBean;
 import been.Webapp;
 
 /**
@@ -121,14 +126,17 @@ public class DAO extends HttpServlet {
 		
 		public int insertDrag(Drag product) throws Exception {
 			Connection con = getConnection();
-			PreparedStatement st = con.prepareStatement("insert into medichine("
-					+ "m_date,_medichine_name,dosage_form,daily_dose,total_amount) "
-					+ "values(?,?,?,?,?)");
-			st.setString(1, product.getM_date());
-			st.setString(2, product.getMedichine_name());
-			st.setString(3, product.getDosage_form());
-			st.setString(4, product.getDaily_dose());
-			st.setString(5, product.getTotal_amount());
+			PreparedStatement st = con.prepareStatement("insert into Medicine(userid,m_date,kusurimei,zaigata,itinitiryou,youhou,zenryou)values(?,?,?,?,?,?,?)");
+			st.setString(1, product.getUserid());
+			Date date = new Date(); // 今日の日付
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String strDate = dateFormat.format(date);
+			st.setString(2, strDate);
+			st.setString(3, product.getKusurimei());
+			st.setString(4, product.getZaigata());
+			st.setString(5, product.getItinitiryou());
+			st.setString(6, product.getYouhou());
+			st.setString(7, product.getZenryou());
 			
 			int line = st.executeUpdate();
 			st.close();
@@ -136,9 +144,9 @@ public class DAO extends HttpServlet {
 			return line;
 		}
 		
-		public int insertTime(Webapp product) throws Exception {
+		public int insertTime(Food product) throws Exception {
 			Connection con = getConnection();
-			PreparedStatement pst = con.prepareStatement("select count(*) as kosu from user where userid=?");
+			/*PreparedStatement pst = con.prepareStatement("select * as kosu from user where userid=?");
 			pst.setString(1, product.getUserid());
 			ResultSet rs = pst.executeQuery();
 			rs.next();
@@ -147,19 +155,37 @@ public class DAO extends HttpServlet {
 			pst.close();
 			System.out.print("kosu");
 			
-			if(kosu==0) {
-			PreparedStatement st = con.prepareStatement("insert into user(morning,noon,night"
-					+ ") values(?,?,?)");
+			if(kosu==0) {*/
+			PreparedStatement st = con.prepareStatement("update user set morning=?,noon=?,night=? where userid = ?");
 			st.setString(1, product.getMorning());
 			st.setString(2, product.getNoon());
-			st.setString(3, product.getNight());	
+			st.setString(3, product.getNight());
+			st.setString(4, product.getUserid());
 			
 			int line = st.executeUpdate();
 			st.close();
 			con.close();
 			return line;
 			
-			}return 0;
+			//}return 0;
 		}
+		
+		public int uploadImage(ImageBean product) throws Exception{
+
+			Connection con = getConnection();
+			PreparedStatement st = con.prepareStatement("insert into photo(userid,photo_no,image) values(?,?,?)");
+
+			st.setString(1, product.getUserid());
+			Date date = new Date(); // 今日の日付
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String strDate = dateFormat.format(date);
+			st.setString(2, strDate);
+			st.setBinaryStream(3, new ByteArrayInputStream(product.getImage()));
+			
+			int line = st.executeUpdate();
+			st.close();
+			con.close();
+			return line;
+			}
 
 }

@@ -27,12 +27,15 @@
 			<button type="submit" name="state" value="food"
 				class="aho btn-outline-primary">食事時間登録</button>
 		</h1>
-
 		<h1 class="button-name text-center">
 			<button type="submit" name="state" value="mypage"
 				class="baka2 btn-outline-success">マイページ</button>
 			<button type="submit" name="state" value="logout"
 				class="aho2 btn-outline-warning">ログアウト</button>
+		</h1>
+		<h1 class="button-name text-center">
+			<button type="submit" name="state" value="ps"
+				class="baka2 btn-outline-secondary">高齢者用ページ</button>
 		</h1>
 	</form>
 </body>
